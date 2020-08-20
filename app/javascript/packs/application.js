@@ -16,3 +16,21 @@ import 'bootstrap';
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+console.log("Hello from app/javascript/packs/application.js!");
+
+import { loadDynamicBannerText } from '../components/banner';
+
+document.addEventListener('turbolinks:load', () => {
+  // Call your JS functions here
+  // [...]
+  loadDynamicBannerText();
+});
+
+
+import { initUpdateNavbarOnScroll } from '../components/navbar';
+
+document.addEventListener('turbolinks:load', () => {
+  // Call your JS functions here
+  initUpdateNavbarOnScroll();
+});
