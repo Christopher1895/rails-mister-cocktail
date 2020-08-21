@@ -1,3 +1,7 @@
+<div class ="container">
+
+</div>
+
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to "#", class: "navbar-brand" do %>
     <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
@@ -24,21 +28,12 @@
     </p>
 </div>
 
+  <% @cocktails.each do |cocktail| %>
+       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    <%= link_to cocktail.name, cocktail_path(cocktail) %>
+       </div>
+  <% end %>
 
-<div class="container">
-  <div class="row">
-    <% @cocktails.each do |cocktail| %>
-      <div class="col-12 col-md-6 col-lg-3">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/500x400/?cocktail');">
-          <div class="card-description">
-            <h2><%= cocktail.name %></h2>
-          </div>
-          <%= link_to cocktail.name, cocktail_path(cocktail), class: 'card-link' %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
 
 <div class="footer">
   <div class="footer-links">
@@ -51,4 +46,6 @@
   <div class="footer-copyright">
     Cocktails with <i class="fas fa-heart"></i>
   </div>
+</div>
+
 </div>

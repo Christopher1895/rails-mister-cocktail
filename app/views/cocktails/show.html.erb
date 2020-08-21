@@ -1,27 +1,15 @@
-<div class = "container col-12">
-    <h1><%= @cocktail.name %></h1>
+<h1><%= @cocktail.name %></h1>
 
-    <div class="card" style="width: 18rem;">
-      <div class="card-header">
-        Cocktail Features
-      </div>
-      <ul class="list-group list-group-flush">
-         <% @cocktail.doses.each do |dose| %>
-        <li class="list-group-item"><%= dose.description %> - <%= dose.ingredient.name %></li>
-         <% end %>
-      </ul>
-    </div>
-
-
-    <%= link_to 'Add new doses',  new_cocktail_dose_path(@cocktail), class: "btn btn-flat" %>
-
-    <%= link_to 'Back',  cocktails_path(@cocktail), class: "btn btn-flat"%>
-
-      <% @cocktail.doses.each do |dose| %>
-          <%= link_to "Delete doses",
+<% @cocktail.doses.each do |dose| %>
+  <%= dose.description %> - <%= dose.ingredient.name %>
+    <%= link_to "Delete doses",
                 dose_path(dose),
                 method: :delete,
-                data: { confirm: "Are you sure?" }, class: "btn btn-flat" %>
-      <% end %>
-</div>
+                data: { confirm: "Are you sure?" } %>
+ <% end %>
+
+<%= link_to 'Add new doses',  new_cocktail_dose_path(@cocktail), class: "btn btn-flat" %>
+
+<%= link_to 'Back',  cocktails_path(@cocktail), class: "btn btn-flat"%>
+
 
